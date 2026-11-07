@@ -20,20 +20,54 @@ function countItems(menu) {
   }
   return count;
 }
-console.log("Example:", countItems(myMenu));   // 4
+console.log("Example:", countItems(myMenu)); // 4
 
 // Rep 1: use a for loop to add up every price. Return the total.
 //   menuTotal(myMenu)  →  22.75 (for the Taco Rocket menu)
 function menuTotal(menu) {
   // your code here
+  let total = 0;
+  for (let i = 0; i < menu.length; i++) {
+    total = total + menu[i].price;
+  }
+  return total;
 }
+
+console.log("Rep 1:", menuTotal(myMenu));
 
 // Rep 2: write a function called totalQuantity(orders) that adds up every order's quantity, with a for loop.
 //   totalQuantity([{ item: "Taco", quantity: 2 }, { item: "Pho", quantity: 5 }])  →  7
 
+function totalQuantity(orders) {
+  let total = 0;
+  for (let i = 0; i < orders.length; i++) {
+    total = total + orders[i].quantity;
+  }
+  return total;
+}
+
+console.log(
+  "Rep 2:",
+  totalQuantity([
+    { item: "Taco", quantity: 2 },
+    { item: "Pho", quantity: 5 },
+  ]),
+);
+
 // Rep 3: write a function called countCheap(menu) that counts the items under $5, with a for loop and an if.
 //   countCheap(myMenu)  →  2 (for the Taco Rocket menu)
 
+function countCheap(menu) {
+  let count = 0;
+  for (let i = 0; i < menu.length; i++) {
+    if (menu[i].price < 5) {
+      count++;
+    }
+  }
+  return count;
+}
+
+console.log("Rep 3:", countCheap(myMenu));
 
 // ---------- Drill B: forEach onto the page ----------
 // Example: log every name.
@@ -53,7 +87,6 @@ function showMenu(menu, list) {
 
 // Rep 2: write a function called showTags(tags, list) that does the same for a list of words.
 //   showTags(["vegan", "spicy"], list)  →  two <li>s: vegan, spicy
-
 
 // (Leave this last line alone. It tells the checker your file ran.)
 const scriptLoaded = true;
